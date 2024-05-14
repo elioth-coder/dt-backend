@@ -89,6 +89,60 @@ abstract class BaseController extends Controller
         }
     }
 
+    public function delete_where()
+    {
+        $column = $this->request->getGet('column');
+        $value  = $this->request->getGet('value');
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+            $builder
+                ->where($column, $value)
+                ->delete();
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "message" => "Successfully deleted items.",
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }    
+
+    public function delete_by_form()
+    {
+        $postData = $this->request->getPost();
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+
+            foreach($postData as $key => $value) {
+                $builder->where($key, $value);
+            }
+
+            $builder->delete();
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "message" => "Successfully deleted items",
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }
+
     public function delete($id)
     {
         try {
@@ -144,7 +198,99 @@ abstract class BaseController extends Controller
 
             return $this->response->setJSON([
                 "status"  => "success",
-                "item" => $item,
+                "item" => $item ?? null,
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }    
+
+    public function get_by_form()
+    {
+        $postData = $this->request->getPost();
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+
+            foreach($postData as $key => $value) {
+                $builder->where($key, $value);
+            }
+
+            $items = $builder
+                ->get()
+                ->getResult();
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "items" => $items,
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function get_value()
+    {
+        $postData = $this->request->getPost();
+        $column = $this->request->getGet('column');
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+
+            foreach($postData as $key => $value) {
+                $builder->where($key, $value);
+            }
+
+            $items = $builder
+                ->get()
+                ->getResult();
+
+            if(count($items)) {
+                $item = $items[0];
+            }    
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "value" => $item[$column] ?? null,
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function get_where()
+    {
+        $column = $this->request->getGet('column');
+        $value  = $this->request->getGet('value');
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+            $items = $builder
+                ->where($column, $value)
+                ->get()
+                ->getResult();
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "items" => $items,
             ]);
         } catch (\Exception $e) {
             return $this->response->setJSON([
