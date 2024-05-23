@@ -5,10 +5,11 @@ namespace App\Controllers;
 class ScheduleController extends BaseController
 {
     public $table_name = 'schedule';
-    public $columns = ['day_of_week', 'section', 'start_time', 'end_time', 'color', 'subject_id', 'teacher_id', 'semester_id'];
+    public $columns = ['day_of_week', 'section', 'room', 'start_time', 'end_time', 'color', 'subject_id', 'teacher_id', 'semester_id'];
     public $rules = [
         'day_of_week' => 'required|string|in_list[Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]',
         'section'     => 'required|string|max_length[15]',
+        'room'        => 'required|string|max_length[25]',
         'start_time'  => 'required|string|max_length[15]',
         'end_time'    => 'required|string|max_length[15]',
         'color'       => 'required|string|max_length[15]',
@@ -22,6 +23,11 @@ class ScheduleController extends BaseController
             'required'   => 'Section is required.',
             'string'     => 'Section must be a string.',
             'max_length' => 'Section must be less than or equal to 15 characters.',
+        ],
+        'room' => [
+            'required'   => 'Room is required.',
+            'string'     => 'Room must be a string.',
+            'max_length' => 'Room must be less than or equal to 25 characters.',
         ],
         'start_time' => [
             'required'   => 'Start time is required.',
