@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document Tracking</title>
     <script src="/src/config.js"></script>
-    <script type="module" crossorigin src="/assets/index-DC2OoTYZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DJqY8l3L.css">
+    <script type="module" crossorigin src="/assets/index-DJHH46wj.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BuwVayNK.css">
   </head>
   <body>
     <div id="app"></div>

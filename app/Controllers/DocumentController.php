@@ -51,13 +51,15 @@ class DocumentController extends BaseController
                     ->getResult()[0];
 
                 $transformedItem = [
-                    "id"          => $item->id,
-                    "location"    => $location,
-                    "recipient"   => $recipient,
-                    "remarks"     => $item->remarks,
-                    "document_id" => $item->document_id,
-                    "dt_created"  => $item->dt_created,
-                    "dt_updated"  => $item->dt_updated,
+                    "id"            => $item->id,
+                    "location"      => $location,
+                    "recipient"     => $recipient,
+                    "remarks"       => $item->remarks,
+                    "status"        => $item->status,
+                    "action_needed" => $item->action_needed,
+                    "document_id"   => $item->document_id,
+                    "dt_created"    => $item->dt_created,
+                    "dt_updated"    => $item->dt_updated,
                 ];
                 $transformedItems[] = $transformedItem;
             }
