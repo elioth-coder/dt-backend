@@ -29,19 +29,12 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->get('recipient/(:num)', 'RecipientController::get/$1');
     $routes->get('recipient/count', 'RecipientController::count');
 
-    $routes->post('document/add', 'DocumentController::add');
-    $routes->post('document/update', 'DocumentController::update');
-    $routes->get('document/delete/(:num)', 'DocumentController::delete/$1');
-    $routes->get('document', 'DocumentController::get_all');
-    $routes->get('document/(:num)', 'DocumentController::get/$1');
-    $routes->get('document/trail/(:num)', 'DocumentController::get_trail/$1');
-    $routes->get('document/count', 'DocumentController::count');
-
     $routes->post('document_trail/add', 'DocumentTrailController::add');
     $routes->post('document_trail/update', 'DocumentTrailController::update');
     $routes->get('document_trail/delete/(:num)', 'DocumentTrailController::delete/$1');
     $routes->get('document_trail', 'DocumentTrailController::get_all');
     $routes->get('document_trail/(:num)', 'DocumentTrailController::get/$1');
+    $routes->get('document_trail/count', 'DocumentTrailController::count');
 
     $routes->get('submission', 'SubmissionController::get_all');
     $routes->get('submission/delete/(:num)', 'SubmissionController::delete/$1');
@@ -68,6 +61,8 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->post('subject/add', 'SubjectController::add');
     $routes->post('subject/update', 'SubjectController::update');
     $routes->get('subject/count', 'SubjectController::count');
+    $routes->get('subject/programs', 'SubjectController::get_programs');
+    $routes->get('subject/program_subjects/(:any)', 'SubjectController::get_program_subjects/$1');
 
     $routes->get('semester', 'SemesterController::get_all');
     $routes->get('semester/delete/(:num)', 'SemesterController::delete/$1');

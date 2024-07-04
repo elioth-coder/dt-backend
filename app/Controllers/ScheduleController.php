@@ -7,7 +7,7 @@ class ScheduleController extends BaseController
     public $table_name = 'schedule';
     public $columns = ['day_of_week', 'section', 'room', 'start_time', 'end_time', 'color', 'subject_id', 'teacher_id', 'semester_id'];
     public $rules = [
-        'day_of_week' => 'required|string|in_list[Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]',
+        'day_of_week' => 'required|string|in_list[MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY]',
         'section'     => 'required|string|max_length[15]',
         'room'        => 'required|string|max_length[25]',
         'start_time'  => 'required|string|max_length[15]',

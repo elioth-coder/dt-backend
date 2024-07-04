@@ -1,1 +1,1 @@
-php spark serve
+php spark serve --host 192.168.2.25 --port 8080
