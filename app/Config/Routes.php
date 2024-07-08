@@ -71,6 +71,15 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->post('semester/update', 'SemesterController::update');
     $routes->get('semester/count', 'SemesterController::count');
 
+    $routes->get('signatory', 'SignatoryController::get_all');
+    $routes->get('signatory/delete/(:num)', 'SignatoryController::delete/$1');
+    $routes->get('signatory/(:num)', 'SignatoryController::get/$1');
+    $routes->post('signatory/add', 'SignatoryController::add');
+    $routes->post('signatory/update', 'SignatoryController::update');
+    $routes->get('signatory/count', 'SignatoryController::count');
+    $routes->get('signatory/get_where', 'SignatoryController::get_where');
+    $routes->post('signatory/get_by_form', 'SignatoryController::get_by_form');
+
     $routes->get('semester_teacher', 'SemesterTeacherController::get_all');
     $routes->get('semester_teacher/delete/(:num)', 'SemesterTeacherController::delete/$1');
     $routes->get('semester_teacher/(:num)', 'SemesterTeacherController::get/$1');
