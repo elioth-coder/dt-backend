@@ -62,4 +62,33 @@ class ScheduleController extends BaseController
             'numeric'  => 'Semester id must be numeric.',
         ],
     ];
+
+    public function get_sections()
+    {
+        $semester_id = $this->request->getGet('semester_id');
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+            $items = $builder
+                ->select('section')
+                ->distinct()
+                ->where('semester_id', $semester_id)
+                ->get()
+                ->getResult();
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "items" => $items,
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }    
+
 }
