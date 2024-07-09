@@ -96,4 +96,5 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->post('schedule/update', 'ScheduleController::update');
     $routes->post('schedule/get_by_form', 'ScheduleController::get_by_form');
     $routes->get('schedule/get_sections', 'ScheduleController::get_sections');
+    $routes->get('schedule/get_rooms', 'ScheduleController::get_rooms');
 });

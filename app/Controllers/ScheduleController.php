@@ -91,4 +91,31 @@ class ScheduleController extends BaseController
         }
     }    
 
+    public function get_rooms()
+    {
+        $semester_id = $this->request->getGet('semester_id');
+
+        try {
+            $db = db_connect();
+            $builder = $db->table($this->table_name);
+            $items = $builder
+                ->select('room')
+                ->distinct()
+                ->where('semester_id', $semester_id)
+                ->get()
+                ->getResult();
+
+            $db->close();
+
+            return $this->response->setJSON([
+                "status"  => "success",
+                "items" => $items,
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                "status"  => "error",
+                "message" => $e->getMessage(),
+            ]);
+        }
+    }    
 }
