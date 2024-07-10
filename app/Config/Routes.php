@@ -22,12 +22,12 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->get('location/(:num)', 'LocationController::get/$1');
     $routes->get('location/count', 'LocationController::count');
 
-    $routes->post('recipient/add', 'RecipientController::add');
-    $routes->post('recipient/update', 'RecipientController::update');
-    $routes->get('recipient/delete/(:num)', 'RecipientController::delete/$1');
-    $routes->get('recipient', 'RecipientController::get_all');
-    $routes->get('recipient/(:num)', 'RecipientController::get/$1');
-    $routes->get('recipient/count', 'RecipientController::count');
+    $routes->post('faculty/add', 'FacultyController::add');
+    $routes->post('faculty/update', 'FacultyController::update');
+    $routes->get('faculty/delete/(:num)', 'FacultyController::delete/$1');
+    $routes->get('faculty', 'FacultyController::get_all');
+    $routes->get('faculty/(:num)', 'FacultyController::get/$1');
+    $routes->get('faculty/count', 'FacultyController::count');
 
     $routes->post('document_trail/add', 'DocumentTrailController::add');
     $routes->post('document_trail/update', 'DocumentTrailController::update');
