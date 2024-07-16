@@ -15,12 +15,12 @@ $routes->group('api', ['filter' => 'cors'], static function($routes) {
 });
 
 $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
-    $routes->post('location/add', 'LocationController::add');
-    $routes->post('location/update', 'LocationController::update');
-    $routes->get('location/delete/(:num)', 'LocationController::delete/$1');
-    $routes->get('location', 'LocationController::get_all');
-    $routes->get('location/(:num)', 'LocationController::get/$1');
-    $routes->get('location/count', 'LocationController::count');
+    $routes->post('room/add', 'RoomController::add');
+    $routes->post('room/update', 'RoomController::update');
+    $routes->get('room/delete/(:num)', 'RoomController::delete/$1');
+    $routes->get('room', 'RoomController::get_all');
+    $routes->get('room/(:num)', 'RoomController::get/$1');
+    $routes->get('room/count', 'RoomController::count');
 
     $routes->post('faculty/add', 'FacultyController::add');
     $routes->post('faculty/update', 'FacultyController::update');
@@ -97,4 +97,5 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->post('schedule/get_by_form', 'ScheduleController::get_by_form');
     $routes->get('schedule/get_sections', 'ScheduleController::get_sections');
     $routes->get('schedule/get_rooms', 'ScheduleController::get_rooms');
+    $routes->get('schedule/get_where', 'ScheduleController::get_where');
 });
