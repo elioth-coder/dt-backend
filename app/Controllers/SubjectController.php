@@ -33,7 +33,7 @@ class SubjectController extends BaseController
         ],
         'units' => [
             'required'   => 'Units is required.',
-            'string'     => 'Units must be an integer.',
+            'integer'    => 'Units must be an integer.',
             'max_length' => 'Units must be less than or equal to 99.',
         ],
         'lec' => [

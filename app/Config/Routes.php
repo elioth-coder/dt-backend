@@ -22,6 +22,13 @@ $routes->group('api', ['filter' => 'authenticated'], static function($routes) {
     $routes->get('room/(:num)', 'RoomController::get/$1');
     $routes->get('room/count', 'RoomController::count');
 
+    $routes->post('program_course/add', 'ProgramCourseController::add');
+    $routes->post('program_course/update', 'ProgramCourseController::update');
+    $routes->get('program_course/delete/(:num)', 'ProgramCourseController::delete/$1');
+    $routes->get('program_course', 'ProgramCourseController::get_all');
+    $routes->get('program_course/(:num)', 'ProgramCourseController::get/$1');
+    $routes->get('program_course/count', 'ProgramCourseController::count');
+
     $routes->post('faculty/add', 'FacultyController::add');
     $routes->post('faculty/update', 'FacultyController::update');
     $routes->get('faculty/delete/(:num)', 'FacultyController::delete/$1');
