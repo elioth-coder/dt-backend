@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2024 at 05:27 AM
+-- Generation Time: Jul 17, 2024 at 03:07 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -98,14 +98,36 @@ INSERT INTO `faculty` (`id`, `name`, `first_name`, `middle_name`, `last_name`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `location`
+-- Table structure for table `room`
 --
 
-CREATE TABLE `location` (
+CREATE TABLE `room` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(60) NOT NULL,
+  `building` varchar(60) NOT NULL,
   `photo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `name`, `building`, `photo`) VALUES
+(16, 'ROOM 1', 'BUILDING 1', ''),
+(17, 'ROOM 2', 'BUILDING 1', ''),
+(18, 'ROOM 3', 'BUILDING 1', ''),
+(19, 'ROOM 4', 'BUILDING 1', ''),
+(20, 'COMLAB 1', 'BUILDING 1', ''),
+(21, 'ROOM A', 'BUILDING 2', ''),
+(22, 'ROOM B', 'BUILDING 2', ''),
+(23, 'ROOM C', 'BUILDING 2', ''),
+(24, 'ROOM D', 'BUILDING 2', ''),
+(25, 'ROOM F', 'BUILDING 2', ''),
+(26, 'ROOM G', 'BUILDING 2', ''),
+(27, 'ROOM H', 'BUILDING 2', ''),
+(28, 'ROOM I', 'BUILDING 2', ''),
+(29, 'ROOM J', 'BUILDING 2', ''),
+(30, 'GYMNASIUM', 'GYMNASIUM', '');
 
 -- --------------------------------------------------------
 
@@ -132,17 +154,26 @@ CREATE TABLE `schedule` (
 
 INSERT INTO `schedule` (`id`, `day_of_week`, `section`, `room`, `start_time`, `end_time`, `subject_id`, `teacher_id`, `semester_id`, `color`) VALUES
 (23, 'MONDAY', 'BSIT - 1A', 'COMLAB 1', '08:00 AM', '01:30 PM', 6, 44, 13, 'teal'),
-(24, 'MONDAY', 'BSIT - 1B', 'COMLAB 1', '02:00 PM', '07:30 PM', 6, 44, 13, 'lime'),
-(25, 'TUESDAY', 'BSIT - 3A', 'COMLAB 2', '08:00 AM', '01:30 PM', 38, 44, 13, 'orange'),
-(26, 'WEDNESDAY', 'BSIT - 3A', 'COMLAB 2', '10:30 AM', '04:30 PM', 41, 44, 13, 'amber'),
-(27, 'THURSDAY', 'BSIT - 1A', 'COMLAB 2', '08:00 AM', '01:30 PM', 15, 44, 13, 'red'),
-(29, 'MONDAY', 'BSED - 1A', 'ROOM A', '08:00 AM', '11:00 AM', 103, 45, 13, 'orange'),
-(30, 'THURSDAY', 'BSED - 3A', 'ROOM D', '10:00 AM', '01:00 PM', 139, 47, 13, 'lime'),
-(31, 'TUESDAY', 'BSED - 2A', 'ROOM F', '08:00 AM', '11:00 AM', 124, 47, 13, 'orange'),
+(29, 'MONDAY', 'BSED-ENG - 1A', 'ROOM A', '08:00 AM', '11:00 AM', 103, 45, 13, 'orange'),
+(30, 'THURSDAY', 'BSED-ENG - 3A', 'ROOM D', '10:00 AM', '01:00 PM', 139, 47, 13, 'lime'),
+(31, 'TUESDAY', 'BSED-ENG - 2A', 'ROOM F', '08:00 AM', '11:00 AM', 124, 47, 13, 'orange'),
 (32, 'SATURDAY', 'BSIT - 1B', 'ROOM 3', '09:00 AM', '12:00 NN', 20, 47, 13, 'red'),
 (33, 'SATURDAY', 'BSIT - 2A', 'GYMNASIUM', '01:00 PM', '04:00 PM', 28, 47, 13, 'orange'),
-(34, 'FRIDAY', 'BSIT - 4A', 'COMLAB 2', '02:00 PM', '07:30 PM', 48, 44, 13, 'green'),
-(35, 'WEDNESDAY', 'BSBA - 2A', 'ROOM 2', '08:00 AM', '11:00 AM', 76, 48, 13, 'amber');
+(35, 'WEDNESDAY', 'BSBA - 2A', 'ROOM 2', '08:00 AM', '11:00 AM', 76, 48, 13, 'amber'),
+(38, 'TUESDAY', 'BSIT - 3A', 'COMLAB 2', '08:00 AM', '01:30 PM', 38, 44, 13, 'orange'),
+(39, 'WEDNESDAY', 'BSIT - 3A', 'COMLAB 2', '10:30 AM', '04:30 PM', 41, 44, 13, 'amber'),
+(40, 'THURSDAY', 'BSIT - 1A', 'COMLAB 2', '08:00 AM', '01:30 PM', 15, 44, 13, 'red'),
+(41, 'FRIDAY', 'BSIT - 4A', 'COMLAB 2', '02:00 PM', '07:30 PM', 48, 44, 13, 'green'),
+(120, 'MONDAY', 'BSIT - 1A', 'COMLAB 1', '08:00 AM', '01:30 PM', 6, 92, 19, 'teal'),
+(122, 'WEDNESDAY', 'BSIT - 3A', 'COMLAB 2', '10:30 AM', '04:30 PM', 41, 92, 19, 'amber'),
+(123, 'THURSDAY', 'BSIT - 1A', 'COMLAB 2', '08:00 AM', '01:30 PM', 15, 92, 19, 'red'),
+(124, 'FRIDAY', 'BSIT - 4A', 'COMLAB 2', '02:00 PM', '07:30 PM', 48, 92, 19, 'green'),
+(125, 'MONDAY', 'BSED-ENG - 1A', 'ROOM A', '08:00 AM', '11:00 AM', 103, 93, 19, 'orange'),
+(126, 'THURSDAY', 'BSED-ENG - 3A', 'ROOM D', '10:00 AM', '01:00 PM', 139, 95, 19, 'lime'),
+(127, 'TUESDAY', 'BSED-ENG - 2A', 'ROOM F', '08:00 AM', '11:00 AM', 124, 95, 19, 'orange'),
+(128, 'SATURDAY', 'BSIT - 1B', 'ROOM 3', '09:00 AM', '12:00 NN', 20, 95, 19, 'red'),
+(129, 'SATURDAY', 'BSIT - 2A', 'GYMNASIUM', '01:00 PM', '04:00 PM', 28, 95, 19, 'orange'),
+(130, 'WEDNESDAY', 'BSBA - 2A', 'ROOM 2', '08:00 AM', '11:00 AM', 76, 96, 19, 'amber');
 
 -- --------------------------------------------------------
 
@@ -162,7 +193,8 @@ CREATE TABLE `semester` (
 --
 
 INSERT INTO `semester` (`id`, `title`, `semester`, `academic_year`) VALUES
-(13, 'FOR PAPAYA', '1st', '2024-2025');
+(13, 'FOR PAPAYA', '1st', '2024-2025'),
+(19, 'TESTING', '1st', '2024-2025');
 
 -- --------------------------------------------------------
 
@@ -173,19 +205,33 @@ INSERT INTO `semester` (`id`, `title`, `semester`, `academic_year`) VALUES
 CREATE TABLE `semester_teacher` (
   `id` int(11) NOT NULL,
   `semester_id` int(11) NOT NULL,
-  `personnel_id` int(11) NOT NULL
+  `personnel_id` int(11) NOT NULL,
+  `research` varchar(60) DEFAULT NULL,
+  `extension` varchar(60) DEFAULT NULL,
+  `consultation` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `semester_teacher`
 --
 
-INSERT INTO `semester_teacher` (`id`, `semester_id`, `personnel_id`) VALUES
-(44, 13, 8),
-(45, 13, 9),
-(46, 13, 10),
-(47, 13, 11),
-(48, 13, 27);
+INSERT INTO `semester_teacher` (`id`, `semester_id`, `personnel_id`, `research`, `extension`, `consultation`) VALUES
+(44, 13, 8, 'Research 1', 'Extension Project Leonor', '8:00 AM-9:00 PM - FRIDAY'),
+(45, 13, 9, '', '', ''),
+(46, 13, 10, '', '', ''),
+(47, 13, 11, '', '', ''),
+(48, 13, 27, '', '', ''),
+(49, 13, 12, NULL, NULL, NULL),
+(50, 13, 13, NULL, NULL, NULL),
+(51, 13, 14, NULL, NULL, NULL),
+(92, 19, 8, 'Research 1', 'Extension Project Leonor', '8:00 AM-9:00 PM - FRIDAY'),
+(93, 19, 9, '', '', ''),
+(94, 19, 10, '', '', ''),
+(95, 19, 11, '', '', ''),
+(96, 19, 27, '', '', ''),
+(97, 19, 12, '', '', ''),
+(98, 19, 13, '', '', ''),
+(99, 19, 14, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -337,63 +383,63 @@ INSERT INTO `subject` (`id`, `code`, `title`, `units`, `lec`, `lab`, `hours_week
 (100, 'ELECTIVE 10', 'ENVIRONMENTAL MARKETING', 3, 3, 0, 3, '', 4, '1st', 'BSBA', 'SERVICE MANAGEMENT'),
 (101, 'BA CORE 8', 'THESIS/FEASIBILITY STUDY', 3, 3, 0, 3, 'BA CORE 7', 4, '1st', 'BSBA', 'SERVICE MANAGEMENT'),
 (102, 'SMINTRN', 'ON-THE-JOB TRAINING (600 HOURS)', 6, 0, 6, 6, 'ALL ACADEMIC SUBJECTS', 4, '2nd', 'BSBA', 'SERVICE MANAGEMENT'),
-(103, 'FIL 1', 'KONTEKSWALISADONG KOMUNIKASYON SA FILIPINO (KOMFIL)', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(104, 'NSTP 1', 'NATIONAL SERVICE TRAINING PROGRAM 1', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(105, 'PE 1', 'ADVANCED GYMNASTICS AND PHYSICAL FITNESS', 2, 2, 0, 2, '', 1, '1st', 'BSED', 'ENGLISH'),
-(106, 'GEN ED 1', 'UNDERSTANDING THE SELF', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(107, 'GEN ED 2', 'READINGS IN THE PHILIPPINE HISTORY', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(108, 'GEN ED 4', 'MATH IN THE MODERN WORLD', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(109, 'GEN ED 5', 'PURPOSIVE COMMUNICATION', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(110, 'PROF ED 1', 'THE TEACHING PROFESSION', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(111, 'PROF ED 2', 'THE CHILD AND ADOLESCENT LEARNER AND LEARNING PRINCIPLES', 3, 3, 0, 3, '', 1, '1st', 'BSED', 'ENGLISH'),
-(112, 'FIL 2', 'FILIPINO SA IBAT-IBANG DISIPLINA (FILDIS)', 3, 3, 0, 3, 'FIL 1', 1, '2nd', 'BSED', 'ENGLISH'),
-(113, 'NSTP 2', 'NATIONAL SERVICE TRAINING PROGRAM 2', 3, 3, 0, 3, 'NSTP 1', 1, '2nd', 'BSED', 'ENGLISH'),
-(114, 'PE 2', 'RHYTHMIC ACTIVITIES', 2, 2, 0, 2, '', 1, '2nd', 'BSED', 'ENGLISH'),
-(115, 'PROF ED 3', 'FACILITATING LEARNER - CENTERED TEACHING: THE LEARNER CENTERED APPROACHES', 3, 3, 0, 3, '', 1, '2nd', 'BSED', 'ENGLISH'),
-(116, 'SEE 1', 'INTRODUCTION TO LINGUISTICS', 3, 3, 0, 3, '', 1, '2nd', 'BSED', 'ENGLISH'),
-(117, 'SEE 2', 'LANGUAGE, CULTURE AND SOCIETY', 3, 3, 0, 3, '', 1, '2nd', 'BSED', 'ENGLISH'),
-(118, 'SEE 3', 'PRINCIPLES AND THEORIES OF LANGUAGE ACQUISITION AND LEARNING', 3, 3, 0, 3, '', 1, '2nd', 'BSED', 'ENGLISH'),
-(119, 'SEE 4', 'MYTHOLOGY AND FOLKLORE', 3, 3, 0, 3, '', 1, '2nd', 'BSED', 'ENGLISH'),
-(120, 'PE 3', 'INDIVIDUAL AND TEAM SPORTS', 2, 2, 0, 2, '', 2, '1st', 'BSED', 'ENGLISH'),
-(121, 'GEN ED 10', 'READING VISUAL ARTS', 3, 3, 0, 3, '', 2, '1st', 'BSED', 'ENGLISH'),
-(122, 'PROF ED 4', 'TECHNOLOGY FOR TEACHING AND LEARNING 1', 3, 3, 0, 3, '', 2, '1st', 'BSED', 'ENGLISH'),
-(123, 'PROF ED 5', 'THE TEACHER AND THE SCHOOL CURRICULUM', 3, 3, 0, 3, '', 2, '1st', 'BSED', 'ENGLISH'),
-(124, 'SEE 5', 'STRUCTURE OF ENGLISH', 3, 3, 0, 3, 'SEE 1', 2, '1st', 'BSED', 'ENGLISH'),
-(125, 'SEE 6', 'LANGUAGE PROGRAMS AND POLICIES IN MULTILINGUAL SOCIETIES', 3, 3, 0, 3, '', 2, '1st', 'BSED', 'ENGLISH'),
-(126, 'SEE 7', 'SURVEY OF PHILIPPINE LITERATURE IN ENGLISH', 3, 3, 0, 3, '', 2, '1st', 'BSED', 'ENGLISH'),
-(127, 'PE 4', 'TEAM SPORTS', 2, 2, 0, 2, '', 2, '2nd', 'BSED', 'ENGLISH'),
-(128, 'PROF ED 7', 'BUILDING AND ENHANCING NEW LITERACIES ACROSS THE CURRICULUM WITH EMPHASIS ON THE 21ST CENTURY SKILLS', 3, 3, 0, 3, 'PROF ED 5', 2, '2nd', 'BSED', 'ENGLISH'),
-(129, 'PROF ED 8', 'ASSESSMENT IN LEARNING 2', 3, 3, 0, 3, 'PROF ED 6', 2, '2nd', 'BSED', 'ENGLISH'),
-(130, 'PROF ED 9', 'FOUNDATION OF SPECIAL AND INCLUSIVE EDUCATION', 3, 3, 0, 3, 'PROF ED 2', 2, '2nd', 'BSED', 'ENGLISH'),
-(131, 'SEE 8', ' SURVEY OF AFRO-ASIAN LITERATURE', 3, 3, 0, 3, 'SEE 7', 2, '2nd', 'BSED', 'ENGLISH'),
-(132, 'SEE 9', 'TEACHING AND ASSESSMENT OF GRAMMAR', 3, 3, 0, 3, 'SEE 5', 2, '2nd', 'BSED', 'ENGLISH'),
-(133, 'SEE 10', 'TEACHING AND ASSESSMENT OF THE MACROSKILLS', 3, 3, 0, 3, 'SEE 2, SEE 3', 2, '2nd', 'BSED', 'ENGLISH'),
-(134, 'SEE 11', 'STYLISTICS AND DISCOURSE ANALYSIS', 3, 3, 0, 3, 'SEE 1,  SEE 2', 2, '2nd', 'BSED', 'ENGLISH'),
-(135, 'SEE 12', 'CONTEMPORARY, POPULAR AND EMERGENT LITERATURE', 3, 3, 0, 3, '', 2, '2nd', 'BSED', 'ENGLISH'),
-(136, 'PROF ED 10', 'THE TEACHER AND THE COMMUNITY, SCHOOL CULTURE AND ORGANIZATIONAL LEADERSHIP', 3, 3, 0, 3, 'PROF ED 1', 3, '1st', 'BSED', 'ENGLISH'),
-(137, 'PROF ED 11', 'METHODS OF RESEARCH (RESEARCH I)', 3, 3, 0, 3, 'PROF ED 6', 3, '1st', 'BSED', 'ENGLISH'),
-(138, 'SEE 13', 'TECHNOLOGY FOR TEACHING AND LEARNING 2 (TECHNOLOGY IN LANGUAGE EDUCATION)', 3, 3, 0, 3, 'PROF ED 4, PROF ED 8', 3, '1st', 'BSED', 'ENGLISH'),
-(139, 'SEE 14', 'SURVEY OF ENGLISH AND AMERICAN LITERATURE', 3, 3, 0, 3, '', 3, '1st', 'BSED', 'ENGLISH'),
-(140, 'SEE 15', 'LANGUAGE LEARNING MATERIALS DEVELOPMENT', 3, 3, 0, 3, 'PROF ED 4', 3, '1st', 'BSED', 'ENGLISH'),
-(141, 'SEE 16', 'SPEECH AND THEATER ARTS', 3, 3, 0, 3, 'SEE 10', 3, '1st', 'BSED', 'ENGLISH'),
-(142, 'SEE 17', 'TECHNICAL WRITING', 3, 3, 0, 3, 'SEE 5', 3, '1st', 'BSED', 'ENGLISH'),
-(143, 'SEE 18', 'FOREIGN LANGUAGE', 3, 3, 0, 3, 'SEE 1, SEE 2', 3, '1st', 'BSED', 'ENGLISH'),
-(144, 'SEE 19', 'TEACHING AND ASSESSMENT OF LITERATURE STUDIES', 3, 3, 0, 3, 'SEE 7, SEE 8, SEE 12, SEE 14', 3, '1st', 'BSED', 'ENGLISH'),
-(145, 'SEE 20', 'LANGUAGE EDUCATION RESEARCH', 3, 3, 0, 3, 'PROF ED 11', 3, '2nd', 'BSED', 'ENGLISH'),
-(146, 'SEE 21', 'LITERARY CRITICISM', 3, 3, 0, 3, 'SEE 7, SEE 8, SEE 12, SEE 14', 3, '2nd', 'BSED', 'ENGLISH'),
-(147, 'SEE 22', 'CHILDREN AND ADOLESCENT LITERATURE', 3, 3, 0, 3, 'SEE 4, SEE 7, SEE 8, SEE 12, SEE 14', 3, '2nd', 'BSED', 'ENGLISH'),
-(148, 'SEE 23', 'CAMPUS JOURNALISM', 3, 3, 0, 3, 'SEE 17', 3, '2nd', 'BSED', 'ENGLISH'),
-(149, 'SEE 24', 'REMEDIAL INSTRUCTION IN ENGLISH', 3, 3, 0, 3, 'SEE 9, SEE 10', 3, '2nd', 'BSED', 'ENGLISH'),
-(150, 'ELP', 'ENGLISH FOR TEACHERS', 3, 3, 0, 3, '', 3, '2nd', 'BSED', 'ENGLISH'),
-(151, 'GEN ED 3', 'THE CONTEMPORARY WORLD', 3, 3, 0, 3, '', 4, '1st', 'BSED', 'ENGLISH'),
-(152, 'GEN ED 6', 'ART APPRECIATION', 3, 3, 0, 3, '', 4, '1st', 'BSED', 'ENGLISH'),
-(153, 'GEN ED 7', 'SCIENCE, TECHNOLOGY AND SOCIETY', 3, 3, 0, 3, '', 4, '1st', 'BSED', 'ENGLISH'),
-(154, 'GEN ED 8', 'ETHICS', 3, 3, 0, 3, '', 4, '1st', 'BSED', 'ENGLISH'),
-(155, 'GEN ED 9', 'LIFE AND WORKS OF RIZAL', 3, 3, 0, 3, '', 4, '1st', 'BSED', 'ENGLISH'),
-(156, 'PROF ED 12', 'FIELD STUDY 1', 3, 0, 3, 3, 'ALL PROF. EDUC AND MAJOR SUBJECTS', 4, '1st', 'BSED', 'ENGLISH'),
-(157, 'PROF ED 13', 'FIELD STUDY 2', 3, 0, 3, 3, 'ALL PROF. EDUC AND MAJOR SUBJECTS', 4, '1st', 'BSED', 'ENGLISH'),
-(158, 'PROF ED 14', 'TEACHING INTERNSHIP (LOCAL AND INTERNATIONAL)', 6, 0, 40, 40, 'PROF ED 12, PROF ED 13', 4, '2nd', 'BSED', 'ENGLISH'),
-(159, 'CA', 'COURSE AUDIT', 3, 6, 0, 6, '', 4, '2nd', 'BSED', 'ENGLISH'),
+(103, 'FIL 1', 'KONTEKSWALISADONG KOMUNIKASYON SA FILIPINO (KOMFIL)', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(104, 'NSTP 1', 'NATIONAL SERVICE TRAINING PROGRAM 1', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(105, 'PE 1', 'ADVANCED GYMNASTICS AND PHYSICAL FITNESS', 2, 2, 0, 2, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(106, 'GEN ED 1', 'UNDERSTANDING THE SELF', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(107, 'GEN ED 2', 'READINGS IN THE PHILIPPINE HISTORY', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(108, 'GEN ED 4', 'MATH IN THE MODERN WORLD', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(109, 'GEN ED 5', 'PURPOSIVE COMMUNICATION', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(110, 'PROF ED 1', 'THE TEACHING PROFESSION', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(111, 'PROF ED 2', 'THE CHILD AND ADOLESCENT LEARNER AND LEARNING PRINCIPLES', 3, 3, 0, 3, '', 1, '1st', 'BSED-ENG', 'ENGLISH'),
+(112, 'FIL 2', 'FILIPINO SA IBAT-IBANG DISIPLINA (FILDIS)', 3, 3, 0, 3, 'FIL 1', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(113, 'NSTP 2', 'NATIONAL SERVICE TRAINING PROGRAM 2', 3, 3, 0, 3, 'NSTP 1', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(114, 'PE 2', 'RHYTHMIC ACTIVITIES', 2, 2, 0, 2, '', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(115, 'PROF ED 3', 'FACILITATING LEARNER - CENTERED TEACHING: THE LEARNER CENTERED APPROACHES', 3, 3, 0, 3, '', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(116, 'SEE 1', 'INTRODUCTION TO LINGUISTICS', 3, 3, 0, 3, '', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(117, 'SEE 2', 'LANGUAGE, CULTURE AND SOCIETY', 3, 3, 0, 3, '', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(118, 'SEE 3', 'PRINCIPLES AND THEORIES OF LANGUAGE ACQUISITION AND LEARNING', 3, 3, 0, 3, '', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(119, 'SEE 4', 'MYTHOLOGY AND FOLKLORE', 3, 3, 0, 3, '', 1, '2nd', 'BSED-ENG', 'ENGLISH'),
+(120, 'PE 3', 'INDIVIDUAL AND TEAM SPORTS', 2, 2, 0, 2, '', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(121, 'GEN ED 10', 'READING VISUAL ARTS', 3, 3, 0, 3, '', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(122, 'PROF ED 4', 'TECHNOLOGY FOR TEACHING AND LEARNING 1', 3, 3, 0, 3, '', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(123, 'PROF ED 5', 'THE TEACHER AND THE SCHOOL CURRICULUM', 3, 3, 0, 3, '', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(124, 'SEE 5', 'STRUCTURE OF ENGLISH', 3, 3, 0, 3, 'SEE 1', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(125, 'SEE 6', 'LANGUAGE PROGRAMS AND POLICIES IN MULTILINGUAL SOCIETIES', 3, 3, 0, 3, '', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(126, 'SEE 7', 'SURVEY OF PHILIPPINE LITERATURE IN ENGLISH', 3, 3, 0, 3, '', 2, '1st', 'BSED-ENG', 'ENGLISH'),
+(127, 'PE 4', 'TEAM SPORTS', 2, 2, 0, 2, '', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(128, 'PROF ED 7', 'BUILDING AND ENHANCING NEW LITERACIES ACROSS THE CURRICULUM WITH EMPHASIS ON THE 21ST CENTURY SKILLS', 3, 3, 0, 3, 'PROF ED 5', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(129, 'PROF ED 8', 'ASSESSMENT IN LEARNING 2', 3, 3, 0, 3, 'PROF ED 6', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(130, 'PROF ED 9', 'FOUNDATION OF SPECIAL AND INCLUSIVE EDUCATION', 3, 3, 0, 3, 'PROF ED 2', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(131, 'SEE 8', ' SURVEY OF AFRO-ASIAN LITERATURE', 3, 3, 0, 3, 'SEE 7', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(132, 'SEE 9', 'TEACHING AND ASSESSMENT OF GRAMMAR', 3, 3, 0, 3, 'SEE 5', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(133, 'SEE 10', 'TEACHING AND ASSESSMENT OF THE MACROSKILLS', 3, 3, 0, 3, 'SEE 2, SEE 3', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(134, 'SEE 11', 'STYLISTICS AND DISCOURSE ANALYSIS', 3, 3, 0, 3, 'SEE 1,  SEE 2', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(135, 'SEE 12', 'CONTEMPORARY, POPULAR AND EMERGENT LITERATURE', 3, 3, 0, 3, '', 2, '2nd', 'BSED-ENG', 'ENGLISH'),
+(136, 'PROF ED 10', 'THE TEACHER AND THE COMMUNITY, SCHOOL CULTURE AND ORGANIZATIONAL LEADERSHIP', 3, 3, 0, 3, 'PROF ED 1', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(137, 'PROF ED 11', 'METHODS OF RESEARCH (RESEARCH I)', 3, 3, 0, 3, 'PROF ED 6', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(138, 'SEE 13', 'TECHNOLOGY FOR TEACHING AND LEARNING 2 (TECHNOLOGY IN LANGUAGE EDUCATION)', 3, 3, 0, 3, 'PROF ED 4, PROF ED 8', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(139, 'SEE 14', 'SURVEY OF ENGLISH AND AMERICAN LITERATURE', 3, 3, 0, 3, '', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(140, 'SEE 15', 'LANGUAGE LEARNING MATERIALS DEVELOPMENT', 3, 3, 0, 3, 'PROF ED 4', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(141, 'SEE 16', 'SPEECH AND THEATER ARTS', 3, 3, 0, 3, 'SEE 10', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(142, 'SEE 17', 'TECHNICAL WRITING', 3, 3, 0, 3, 'SEE 5', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(143, 'SEE 18', 'FOREIGN LANGUAGE', 3, 3, 0, 3, 'SEE 1, SEE 2', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(144, 'SEE 19', 'TEACHING AND ASSESSMENT OF LITERATURE STUDIES', 3, 3, 0, 3, 'SEE 7, SEE 8, SEE 12, SEE 14', 3, '1st', 'BSED-ENG', 'ENGLISH'),
+(145, 'SEE 20', 'LANGUAGE EDUCATION RESEARCH', 3, 3, 0, 3, 'PROF ED 11', 3, '2nd', 'BSED-ENG', 'ENGLISH'),
+(146, 'SEE 21', 'LITERARY CRITICISM', 3, 3, 0, 3, 'SEE 7, SEE 8, SEE 12, SEE 14', 3, '2nd', 'BSED-ENG', 'ENGLISH'),
+(147, 'SEE 22', 'CHILDREN AND ADOLESCENT LITERATURE', 3, 3, 0, 3, 'SEE 4, SEE 7, SEE 8, SEE 12, SEE 14', 3, '2nd', 'BSED-ENG', 'ENGLISH'),
+(148, 'SEE 23', 'CAMPUS JOURNALISM', 3, 3, 0, 3, 'SEE 17', 3, '2nd', 'BSED-ENG', 'ENGLISH'),
+(149, 'SEE 24', 'REMEDIAL INSTRUCTION IN ENGLISH', 3, 3, 0, 3, 'SEE 9, SEE 10', 3, '2nd', 'BSED-ENG', 'ENGLISH'),
+(150, 'ELP', 'ENGLISH FOR TEACHERS', 3, 3, 0, 3, '', 3, '2nd', 'BSED-ENG', 'ENGLISH'),
+(151, 'GEN ED 3', 'THE CONTEMPORARY WORLD', 3, 3, 0, 3, '', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(152, 'GEN ED 6', 'ART APPRECIATION', 3, 3, 0, 3, '', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(153, 'GEN ED 7', 'SCIENCE, TECHNOLOGY AND SOCIETY', 3, 3, 0, 3, '', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(154, 'GEN ED 8', 'ETHICS', 3, 3, 0, 3, '', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(155, 'GEN ED 9', 'LIFE AND WORKS OF RIZAL', 3, 3, 0, 3, '', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(156, 'PROF ED 12', 'FIELD STUDY 1', 3, 0, 3, 3, 'ALL PROF. EDUC AND MAJOR SUBJECTS', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(157, 'PROF ED 13', 'FIELD STUDY 2', 3, 0, 3, 3, 'ALL PROF. EDUC AND MAJOR SUBJECTS', 4, '1st', 'BSED-ENG', 'ENGLISH'),
+(158, 'PROF ED 14', 'TEACHING INTERNSHIP (LOCAL AND INTERNATIONAL)', 6, 0, 40, 40, 'PROF ED 12, PROF ED 13', 4, '2nd', 'BSED-ENG', 'ENGLISH'),
+(159, 'CA', 'COURSE AUDIT', 3, 6, 0, 6, '', 4, '2nd', 'BSED-ENG', 'ENGLISH'),
 (160, 'FIL 1', 'KONTEKSWALISADONG KOMUNIKASYON SA FILIPINO (KOMFIL)', 3, 3, 0, 3, '', 1, '1st', 'BEED', 'ELEMENTARY EDUCATION'),
 (161, 'NSTP 1', 'NATIONAL SERVICE TRAINING PROGRAM 1', 3, 3, 0, 3, '', 1, '1st', 'BEED', 'ELEMENTARY EDUCATION'),
 (162, 'PE 1', 'ADVANCED GYMNASTICS AND PHYSICAL FITNESS', 2, 2, 0, 2, '', 1, '1st', 'BEED', 'ELEMENTARY EDUCATION'),
@@ -537,10 +583,11 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `location`
+-- Indexes for table `room`
 --
-ALTER TABLE `location`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `schedule`
@@ -631,28 +678,28 @@ ALTER TABLE `faculty`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `location`
+-- AUTO_INCREMENT for table `room`
 --
-ALTER TABLE `location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+ALTER TABLE `room`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `semester`
 --
 ALTER TABLE `semester`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `semester_teacher`
 --
 ALTER TABLE `semester_teacher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `signatory`
