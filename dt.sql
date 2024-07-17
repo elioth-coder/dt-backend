@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2024 at 03:07 AM
+-- Generation Time: Jul 17, 2024 at 05:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -98,6 +98,29 @@ INSERT INTO `faculty` (`id`, `name`, `first_name`, `middle_name`, `last_name`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `program_course`
+--
+
+CREATE TABLE `program_course` (
+  `id` int(11) NOT NULL,
+  `code` varchar(15) NOT NULL,
+  `degree` varchar(120) NOT NULL,
+  `major` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_course`
+--
+
+INSERT INTO `program_course` (`id`, `code`, `degree`, `major`) VALUES
+(1, 'BSED-ENG', 'Bachelor of Secondary Education', 'English'),
+(2, 'BSIT', 'Bachelor of Science in Information Technology', 'Web Systems Technology'),
+(3, 'BEED', 'Bachelor of Elementary Education', 'General Education'),
+(4, 'BSBA', 'Bachelor of Science in Business Administration', 'Marketing Management');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `room`
 --
 
@@ -127,7 +150,8 @@ INSERT INTO `room` (`id`, `name`, `building`, `photo`) VALUES
 (27, 'ROOM H', 'BUILDING 2', ''),
 (28, 'ROOM I', 'BUILDING 2', ''),
 (29, 'ROOM J', 'BUILDING 2', ''),
-(30, 'GYMNASIUM', 'GYMNASIUM', '');
+(30, 'GYMNASIUM', 'GYMNASIUM', ''),
+(31, 'COMLAB 2', 'BUILDING 2', '');
 
 -- --------------------------------------------------------
 
@@ -173,7 +197,20 @@ INSERT INTO `schedule` (`id`, `day_of_week`, `section`, `room`, `start_time`, `e
 (127, 'TUESDAY', 'BSED-ENG - 2A', 'ROOM F', '08:00 AM', '11:00 AM', 124, 95, 19, 'orange'),
 (128, 'SATURDAY', 'BSIT - 1B', 'ROOM 3', '09:00 AM', '12:00 NN', 20, 95, 19, 'red'),
 (129, 'SATURDAY', 'BSIT - 2A', 'GYMNASIUM', '01:00 PM', '04:00 PM', 28, 95, 19, 'orange'),
-(130, 'WEDNESDAY', 'BSBA - 2A', 'ROOM 2', '08:00 AM', '11:00 AM', 76, 96, 19, 'amber');
+(130, 'WEDNESDAY', 'BSBA - 2A', 'ROOM 2', '08:00 AM', '11:00 AM', 76, 96, 19, 'amber'),
+(131, 'MONDAY', 'BSIT - 2A', 'COMLAB 1', '02:00 PM', '03:00 PM', 22, 46, 13, 'yellow'),
+(132, 'WEDNESDAY', 'BSIT - 2A', 'COMLAB 1', '02:00 PM', '03:00 PM', 22, 46, 13, 'yellow'),
+(133, 'FRIDAY', 'BSIT - 2A', 'COMLAB 1', '02:00 PM', '03:00 PM', 22, 46, 13, 'yellow'),
+(134, 'TUESDAY', 'BSIT - 3B', 'COMLAB 1', '08:00 AM', '09:30 AM', 37, 46, 13, 'red'),
+(135, 'WEDNESDAY', 'BSIT - 3B', 'COMLAB 1', '08:00 AM', '09:30 AM', 37, 46, 13, 'red'),
+(136, 'FRIDAY', 'BSIT - 3B', 'COMLAB 1', '08:00 AM', '09:30 AM', 37, 46, 13, 'red'),
+(137, 'MONDAY', 'BSED-ENG - 1A', 'ROOM F', '01:00 PM', '02:00 PM', 106, 45, 13, 'green'),
+(138, 'WEDNESDAY', 'BSED-ENG - 1A', 'ROOM F', '01:00 PM', '02:00 PM', 106, 45, 13, 'green'),
+(139, 'SATURDAY', 'BSED-ENG - 1A', 'ROOM F', '01:00 PM', '02:00 PM', 106, 45, 13, 'green'),
+(140, 'TUESDAY', 'BSED-ENG - 1B', 'ROOM F', '11:00 AM', '12:30 PM', 111, 45, 13, 'blue'),
+(141, 'THURSDAY', 'BSED-ENG - 1B', 'ROOM F', '08:00 AM', '09:30 AM', 111, 45, 13, 'blue'),
+(142, 'MONDAY', 'BSIT - 3A', 'ROOM F', '09:30 AM', '12:00 NN', 39, 46, 13, 'green'),
+(143, 'FRIDAY', 'BSIT - 3A', 'ROOM F', '09:30 AM', '12:00 NN', 39, 46, 13, 'green');
 
 -- --------------------------------------------------------
 
@@ -583,6 +620,12 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `program_course`
+--
+ALTER TABLE `program_course`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `room`
 --
 ALTER TABLE `room`
@@ -678,16 +721,22 @@ ALTER TABLE `faculty`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT for table `program_course`
+--
+ALTER TABLE `program_course`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `semester`
@@ -711,7 +760,7 @@ ALTER TABLE `signatory`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- AUTO_INCREMENT for table `submission`
