@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEUST SYSTEM</title>
     <script src="/src/config.js"></script>
-    <script type="module" crossorigin src="/assets/index-D7X5R9UZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-f4LRHyWJ.css">
+    <script type="module" crossorigin src="/assets/index-DdQjGTBP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CmYK8eXj.css">
   </head>
   <body>
     <div id="app"></div>
