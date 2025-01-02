@@ -5,7 +5,7 @@ namespace App\Controllers;
 class SemesterTeacherController extends BaseController
 {
     public $table_name = 'semester_teacher';
-    public $columns = ['semester_id', 'personnel_id','research','extension','consultation'];
+    public $columns = ['semester_id', 'personnel_id','research','extension','consultation','designation'];
     public $rules = [
         'semester_id'  => 'required|numeric',
         'personnel_id' => 'required|numeric',
